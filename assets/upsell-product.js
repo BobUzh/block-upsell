@@ -1,5 +1,6 @@
 class UpsellProduct extends HTMLElement {
     cartIconBubble = 'cart-icon-bubble';
+    cartDrawer = 'cart-drawer';
 
     constructor() {
         super()
@@ -14,11 +15,14 @@ class UpsellProduct extends HTMLElement {
     addToCart() {
         this.btn.classList.add('spinner');
         const formData = {
-            'sections': this.cartIconBubble,
+            'sections': `${this.cartIconBubble},${this.cartDrawer}`,
             'items': [
                 {
                 'id': this.variant,
-                'quantity': 1
+                'quantity': 1,
+                "properties" : {
+                    "product": "upsell"
+                  }
                 }
             ]
         };
@@ -35,9 +39,17 @@ class UpsellProduct extends HTMLElement {
         })
         .then(data => {
             const cartIconSection = data.sections[this.cartIconBubble];
+            const cartDrawerSection = data.sections[this.cartDrawer];
+
             const newCartIcon = new DOMParser().parseFromString(cartIconSection, 'text/html')
                 .querySelector('.shopify-section').innerHTML;
             document.querySelector(`#${this.cartIconBubble}`).innerHTML = newCartIcon;
+
+            console.log(cartDrawerSection);
+            const newCartDrawer = new DOMParser().parseFromString(cartDrawerSection, 'text/html')
+                .querySelector('cart-drawer').innerHTML;
+            document.querySelector('cart-drawer').innerHTML = newCartDrawer;
+            document.querySelector('cart-drawer').classList.remove('is-empty');
         })
         .catch((error) => {
         console.error('Error:', error);
