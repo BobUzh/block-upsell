@@ -13,7 +13,7 @@ class UpsellProduct extends HTMLElement {
     }
 
     addToCart() {
-        this.btn.classList.add('spinner');
+        this.btn.querySelector('.loader').classList.remove('hidden');
         const formData = {
             'sections': `${this.cartIconBubble},${this.cartDrawer}`,
             'items': [
@@ -53,7 +53,7 @@ class UpsellProduct extends HTMLElement {
         .catch((error) => {
         console.error('Error:', error);
         })
-        .finally(() => this.btn.classList.remove('spinner'));
+        .finally(() => this.btn.querySelector('.loader').classList.add('hidden'));
     }
 }
 

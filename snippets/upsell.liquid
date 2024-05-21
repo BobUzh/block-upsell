@@ -61,7 +61,9 @@
                                 {% unless product.first_available_variant %}
                                     <button class="usell-btn" disabled>Sold Out</button>
                                 {% else %}
-                                    <button class="usell-btn">Buy Now</button>
+                                    <button class="usell-btn">Buy Now
+                                        <span class="loader hidden"></span>
+                                    </button>
                                 {% endunless %}
                             </div>
                         {% else %}
