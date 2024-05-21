@@ -1,0 +1,52 @@
+
+upsell-product {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+}
+.upsell-product__body h3 {
+    margin: 0;
+}
+.upsell-product__body button {
+    width: 100%;
+    box-sizing: border-box !important;
+}
+.upsell-product__image {
+    /* flex: 1; */
+}
+.upsell-product__image img {
+    width: 100%;
+    height: auto;
+}
+.usell-btn {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    padding: 5px 12px;
+}
+.usell-btn.spinner {
+    background-color: green;
+}
+.usell-btn[disabled] {
+    cursor: not-allowed;
+}
+.usell-btn:not([disabled]) {
+    cursor: pointer;
+    border: 2px solid #121212;
+    color: rgb(var(--color-button-text));
+    background-color: rgb(var(--color-button));
+}
+.usell-btn:not([disabled]):hover {
+    color: rgb(var(--color-button));
+    background-color: rgb(var(--color-button-text));
+}
+.swiper-btn {
+    display: block !important;
+    color: black;
+}
+.swiper-button-lock {
+    display: none !important;
+}

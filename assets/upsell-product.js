@@ -45,7 +45,6 @@ class UpsellProduct extends HTMLElement {
                 .querySelector('.shopify-section').innerHTML;
             document.querySelector(`#${this.cartIconBubble}`).innerHTML = newCartIcon;
 
-            console.log(cartDrawerSection);
             const newCartDrawer = new DOMParser().parseFromString(cartDrawerSection, 'text/html')
                 .querySelector('cart-drawer').innerHTML;
             document.querySelector('cart-drawer').innerHTML = newCartDrawer;

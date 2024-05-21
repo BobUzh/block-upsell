@@ -12,7 +12,8 @@
   {%- if product.quantity_price_breaks_configured? -%}
     {{ 'component-volume-pricing.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
-
+  {{ 'upsell.css' | asset_url | stylesheet_tag }}
+  
   {%- style -%}
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -718,7 +719,7 @@
           "type": "product_list",
           "id": "product_list",
           "label": "Product list",
-          "limit": 3
+          "limit": 5
         },
         {
           "type": "text",
