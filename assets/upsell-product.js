@@ -18,11 +18,11 @@ class UpsellProduct extends HTMLElement {
             'sections': `${this.cartIconBubble},${this.cartDrawer}`,
             'items': [
                 {
-                'id': this.variant,
-                'quantity': 1,
-                "properties" : {
-                    "product": "upsell"
-                  }
+                    'id': this.variant,
+                    'quantity': 1,
+                    "properties" : {
+                        "product": "upsell"
+                    }
                 }
             ]
         };
@@ -50,9 +50,7 @@ class UpsellProduct extends HTMLElement {
             document.querySelector('cart-drawer').innerHTML = newCartDrawer;
             document.querySelector('cart-drawer').classList.remove('is-empty');
         })
-        .catch((error) => {
-        console.error('Error:', error);
-        })
+        .catch((error) => console.error('Error:', error))
         .finally(() => this.btn.querySelector('.loader').classList.add('hidden'));
     }
 }

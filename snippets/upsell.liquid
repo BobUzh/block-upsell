@@ -41,40 +41,39 @@
                 }
             }
         </script>
-          <div class="swiper-wrapper">
-              {% for product in productList %}
-                  <div class="swiper-slide">
+        <div class="swiper-wrapper">
+            {% for product in productList %}
+                <div class="swiper-slide">
                     <upsell-product data-variant="{{ product.first_available_variant.id }}">
-                    <div class="upsell-product__image">
-                        <img 
-                            src="{{ product.featured_image | image_url: width: '200' }}" 
-                            width="{{ product.featured_image.width }}"
-                            height="{{ product.featured_image.height }}"
-                            alt=""
-                        >
-                    </div>
-                    <div class="upsell-product__body">
-                        <h3>{{ product.title }}</h3>
-                        <p>{{ product.price | money_with_currency }}</p>
-                        {% if isButton %}
-                            <div>
-                                {% unless product.first_available_variant %}
-                                    <button class="usell-btn" disabled>Sold Out</button>
-                                {% else %}
-                                    <button class="usell-btn">Buy Now
-                                        <span class="loader hidden"></span>
-                                    </button>
-                                {% endunless %}
-                            </div>
-                        {% else %}
-                            <a class="usell-btn" href="{{ product.url }}" target="_blank">Buy Now</a>
-                        {% endif %}
-                    </div>
-                </upsell-product>
-                  </div>
-              {% endfor %}
-
-          </div>
+                        <div class="upsell-product__image">
+                            <img 
+                                src="{{ product.featured_image | image_url: width: '200' }}" 
+                                width="{{ product.featured_image.width }}"
+                                height="{{ product.featured_image.height }}"
+                                alt=""
+                            >
+                        </div>
+                        <div class="upsell-product__body">
+                            <h3>{{ product.title }}</h3>
+                            <p>{{ product.price | money_with_currency }}</p>
+                            {% if isButton %}
+                                <div>
+                                    {% unless product.first_available_variant %}
+                                        <button class="usell-btn" disabled>Sold Out</button>
+                                    {% else %}
+                                        <button class="usell-btn">Buy Now
+                                            <span class="loader hidden"></span>
+                                        </button>
+                                    {% endunless %}
+                                </div>
+                            {% else %}
+                                <a class="usell-btn" href="{{ product.url }}" target="_blank">Buy Now</a>
+                            {% endif %}
+                        </div>
+                    </upsell-product>
+                </div>
+            {% endfor %}
+        </div>
     </s-slider>
     <div class="swiper-button-next swiper-btn" style="right: -30px;"></div>
     <div class="swiper-button-prev swiper-btn" style="left: -30px;"></div>
